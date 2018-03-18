@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Animal;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $animal = new Animal;
+        $animal->nombre = "Andrés";
+        $animal->save();
+
+        return view('home', ['animal' => $animal]);
     }
 }

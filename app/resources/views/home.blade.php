@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+
+                    El animal creado es: id = {{ $animal->id }}, nombre =  {{ $animal->nombre }}
                 </div>
             </div>
         </div>
