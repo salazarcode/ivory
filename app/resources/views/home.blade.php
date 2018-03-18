@@ -18,7 +18,6 @@
 
                     El animal creado es: id = {{ $animal->id }}, Nombre =  {{ $animal->nombre }}
                     <p>Para ver si agarra los cambios</p>
-                    <p>Que va</p>
                 </div>
             </div>
         </div>
