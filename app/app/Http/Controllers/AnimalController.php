@@ -81,4 +81,9 @@ class AnimalController extends Controller
     {
         //
     }
+
+    public function prueba_tiempo($nombre)
+    {
+        return ["mensaje" => "Hola {$nombre}"];
+    }
 }
