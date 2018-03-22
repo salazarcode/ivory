@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get("/prueba_tiempo/{nombre}", "AnimalController@prueba_tiempo");
+

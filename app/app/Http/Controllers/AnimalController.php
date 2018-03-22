@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Animal;
 
 class AnimalController extends Controller
 {
@@ -13,7 +14,10 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+        $animales = Animal::all();
+        return response()->json([
+            'animales' => $animales
+        ], 200);
     }
 
     /**
@@ -80,10 +84,5 @@ class AnimalController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function prueba_tiempo($nombre)
-    {
-        return ["mensaje" => "Hola {$nombre}"];
     }
 }

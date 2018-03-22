@@ -18,6 +18,14 @@
 
                     El animal creado es: id = {{ $animal->id }}, Nombre =  {{ $animal->nombre }}
                     <p>Para ver si agarra los cambios</p>
+
+                    <script src="axios.min.js"></script>
+                    <script>
+                    axios.get('oauth/clients')
+                        .then(response => {
+                            console.log(response.data);
+                        });
+                    </script>
                 </div>
             </div>
         </div>
