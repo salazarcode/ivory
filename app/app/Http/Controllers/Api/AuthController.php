@@ -79,8 +79,10 @@ class AuthController extends Controller
                 "descripcion" => $this->mensajes["nonModel"]
             ], 200);
         }
-            
+        
+        $blabla = true;
         return response()->json($user, 200);
+        /*Comentario random*/
     }
 }
 

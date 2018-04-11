@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Marca;
 use App\User;
+use App\Permiso;
 use Validator;
 
 
-class MarcasController extends Controller
+class MarcasController extends Controller /*Hola mundo */
 {
     public $mensajes = [
         "notFound" => "El modelo solicitado no existe",
