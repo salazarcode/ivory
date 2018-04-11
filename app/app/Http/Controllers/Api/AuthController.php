@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class AuthController extends Controller
-{
+{    
+    public $mensajes = [
+        "notFound" => "El modelo solicitado no existe",
+        "nonModel" => "No existe ningún elemento aún"
+    ];
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -17,6 +22,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
+            'role_id' => 'required'
         ]);
     
         if ($validator->fails()) {
@@ -46,5 +52,35 @@ class AuthController extends Controller
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
         }
-    }    
+    } 
+    
+    public function retrieve($id = null)
+    {
+        if($id == null)
+            $user = User::all();
+        else
+        {
+            $user = User::find($id);
+            if($user == null)
+            {
+                return response()->json(
+                [
+                    "status" => 0,
+                    "descripcion" => $this->mensajes["notFound"]
+                ], 200);
+            }
+        }
+
+        if($user->count() == 0)
+        {
+            return response()->json(
+            [
+                "status" => 0,
+                "descripcion" => $this->mensajes["nonModel"]
+            ], 200);
+        }
+            
+        return response()->json($user, 200);
+    }
 }
+

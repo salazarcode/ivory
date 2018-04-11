@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AnimalesMigration extends Migration
+class MarcaSitioMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AnimalesMigration extends Migration
      */
     public function up()
     {
-        Schema::create('animales', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre');
-            $table->timestamps();
+        Schema::create('marca_sitio', function(Blueprint $table){
+            $table->integer('marca_id')->unsigned();
+            $table->integer('sitio_id')->unsigned();
+
+            $table->primary(['marca_id', 'sitio_id']);
         });
     }
 
@@ -27,6 +28,6 @@ class AnimalesMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animales');
+        Schema::dropIfExists('marca_sitio');
     }
 }
