@@ -80,9 +80,7 @@ class AuthController extends Controller
             ], 200);
         }
         
-        $blabla = true;
         return response()->json($user, 200);
-        /*Comentario random*/
     }
 }
 
